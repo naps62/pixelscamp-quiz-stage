@@ -2,3 +2,4 @@
 .lein*
 game-state.edn*
 *.log
+rounds/
