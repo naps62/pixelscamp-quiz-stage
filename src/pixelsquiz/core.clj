@@ -61,12 +61,12 @@
 
 (defn buzz-timer
   [c world & _]
-  (run-timer 20 :buzz-timeout (-> world :stage :displays) c)
+  (run-timer 2 :buzz-timeout (-> world :stage :displays) c)
   world)
 
 (defn options-timer
   [c world & _]
-  (run-timer 20 :options-timeout (-> world :stage :displays) c)
+  (run-timer 2 :options-timeout (-> world :stage :displays) c)
   world)
 
 
