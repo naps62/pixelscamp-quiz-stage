@@ -18,7 +18,6 @@
     (clojure.lang.RT/loadLibrary (str "hidapi-jni-" bits))))
 
 (defn open-buzz []
-  (logger/info "Trying to open Buzz controllers")
   (let [_ (load-hid-natives)
         manager (HIDManager/getInstance)
         all_devs (.listDevices manager)
@@ -26,8 +25,6 @@
         buzz_dev (first (filter filter_pred all_devs))]
     (println buzz_dev)
     (if (nil? buzz_dev)
-      (logger/info "Could not connect Buzz controllers")
-
       (let [buzz (.openByPath manager (.getPath buzz_dev))]
         (logger/info "Buzz controllers detected") buzz)
     )
